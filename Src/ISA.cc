@@ -76,7 +76,7 @@ namespace CDC8600
 	    assert(Xi < 16);
 		assert(Xj < 16);
 		assert(Xk < 16);
-		PROC.X(Xi).u() = PROC.X(Xj).u() + PROC.X(Xk).i();
+		PROC.X(Xi).i() = PROC.X(Xj).i() + PROC.X(Xk).i();
 	}
 	
         void idjkj
@@ -86,7 +86,7 @@ namespace CDC8600
 	)
 	{
 		assert(Xj < 16);
-		// assert(k) ?
+		assert(k < 16);
 		PROC.X(Xj).u() -= k;
 	}
 
@@ -98,7 +98,7 @@ namespace CDC8600
 	{
 	    assert(Xj < 16);
 		assert(Xk < 16);
-		PROC.X(Xj).i() = -PROC.X(Xk).u();
+		PROC.X(Xj).i() = -PROC.X(Xk).i();
 	}
 
 	void isjkj
@@ -108,7 +108,7 @@ namespace CDC8600
 	)
 	{
 	    assert(Xj < 16);
-		// assert(k) ?
+		assert(k < 16);
 		PROC.X(Xj).i() += k;
 	}
 
