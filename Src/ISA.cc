@@ -51,11 +51,11 @@ namespace CDC8600
 		assert(Xk < 16);
 
 	    uint32_t addr = PROC.X(Xj).i() + PROC.X(Xk).i();	
-		addr &= 0xfffff;
+		assert(addr < 1024*1024);
 
 		if (addr < PROC.FL().u()*256)
 	    {
-			// good
+			// Good
 			addr += PROC.RA().u()*256;
 			assert(addr < params::MEM::N);
 			PROC.X(Xi) = MEM[addr];
@@ -80,11 +80,11 @@ namespace CDC8600
 		assert(Xk < 16);
 
 		uint32_t addr = PROC.X(Xj).i() + PROC.X(Xk).i();
-		addr &= 0xfffff;
+		assert(addr < 1024*1024);
 
 		if (addr < PROC.FL().u()*256)
 	    {
-			// good
+			// Good
 			addr += PROC.RA().u()*256; 
 			assert(addr < params::MEM::N); 
 			MEM[addr] = PROC.X(Xi);
